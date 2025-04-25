@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Gestión SySO ofrece servicios especializados en Higiene y Seguridad en el Trabajo, brindando soluciones integrales para garantizar ambientes laborales seguros y en cumplimiento con la normativa legal vigente en Argentina.">
+    <meta name="keywords"
+        content="Gestión SySO, higiene y seguridad en el trabajo, consultora, seguridad laboral, prevención de riesgos laborales, seguridad ocupacional, consultoría en seguridad e higiene, Argentina, prevención de riesgos, salud ocupacional, seguridad e higiene">
+    <title>Gestión SySO</title>
+
+    <link rel="icon" type="image/png" href="./assets/img/helmet.png">
+
+    <!--CSS boostrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!--enlace con css-->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script defer src="main.js"></script>
+
+</head>
+
+<body>
+    <!--encabezado desktop-->
+    <header class="fixed-top">
+        <nav class="navbar desktop-navbar fixed-top">
+            <a href="#" title="Gestión SySO">
+                <img src="./assets/img/Logopit_1546119869136.png" alt="Logotipo de Gestión SySO">
+            </a>
+            <ul class="nav nav-underline justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./views/nosotros.html">Nosotros</a>
+                </li><!--enlace relativo (entre páginas dentro del mismo proyecto)-->
+                <li class="nav-item">
+                    <a class="nav-link" href="./views/servicios.html">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./views/noticias.html">Noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./views/contacto.html">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!--encabezado mobile-->
+        <nav class="navbar bg-body-tertiary fixed-top mobile-navbar">
+            <div class="container-fluid">
+                <a href="#" title="Gestión SySO">
+                    <img src="./assets/img/Logopit_1546119869136.png" alt="Logotipo de Gestión SySO">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <img src="./assets/img/Logopit_1546119869136.png" alt="Logotipo de Gestión SySO">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav nav-underline justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./views/nosotros.html">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./views/servicios.html">Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./views/noticias.html">Noticias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./views/contacto.html">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <main><!--contenido principal de la página-->
+
+        <div class="contenedor-video-banner-inicio">
+            <video class="video-banner-inicio" src="./assets/video/banner pagina web.mp4" autoplay loop></video>
+        </div>
+
+        <section class="servicios-inicio">
+
+            <h1>
+                <a href="./views/servicios.html">Nuestros servicios</a>
+            </h1>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/img/gears-1.png" class="card-img-top"
+                            alt="Gestión de Seguridad y Salud Ocupacional">
+                        <div class="card-body">
+                            <h3 class="card-title">Gestión de Seguridad y Salud Ocupacional</h3>
+                            <a href="./views/servicios.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/img/fire_1.png" class="card-img-top"
+                            alt="Estudio de Carga de Fuego / Informe antisiniestral">
+                        <div class="card-body">
+                            <h3 class="card-title">Estudio de Carga de Fuego / Informe antisiniestral</h3>
+                            <a href="./views/servicios.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/img/exit-1_1.png" class="card-img-top" alt="Planes de autoprotección">
+                        <div class="card-body">
+                            <h3 class="card-title">Planes de autoprotección</h3>
+                            <a href="./views/servicios.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/img/speedometer-1.png" class="card-img-top" alt="Estudios y Mediciones">
+                        <div class="card-body">
+                            <h3 class="card-title">Estudios y Mediciones</h3>
+                            <a href="./views/servicios.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/img/helmet-1.png" class="card-img-top" alt="Programas de seguridad">
+                        <div class="card-body">
+                            <h3 class="card-title">Programas de seguridad</h3>
+                            <a href="./views/servicios.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/img/teaching.png" class="card-img-top" alt="Capacitación y entrenamiento">
+                        <div class="card-body">
+                            <h3 class="card-title">Capacitación y entrenamiento</h3>
+                            <a href="./views/servicios.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="./assets/img/conveyor_1.png" class="card-img-top" alt="Ergonomía">
+                        <div class="card-body">
+                            <h3 class="card-title">Ergonomía</h3>
+                            <a href="./views/servicios.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+        </section>
+        <hr>
+        <section class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+            <h2>Quienes nos eligen</h2>
+            <div class="carousel-inner text-center">
+
+                <div class="carousel-item active">
+                    <img src="./assets/img/logo-redimat.png" class="d-inline-block mx-4" alt="Cliente 1">
+                    <img src="./assets/img/logo-propel.png" class="d-inline-block mx-4" alt="Cliente 2">
+                    <img src="./assets/img/logo-rf.png" class="d-inline-block mx-4" alt="Cliente 3">
+                    <img src="./assets/img/logo-motherson.png" class="d-inline-block mx-4" alt="Cliente 4">
+                    <img src="./assets/img/logo-centralpizzasyempanadas.png" class="d-inline-block mx-4" alt="Cliente 5">
+                    <img src="./assets/img/logo-cohen.png" class="d-inline-block mx-4" alt="Cliente 6">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="./assets/img/logo-workingocampo.png" class="d-inline-block mx-4" alt="Cliente 7">                   
+                    <img src="./assets/img/logo-workingocampoLeaf.png" class="d-inline-block mx-4" alt="Cliente 8">
+                    <img src="./assets/img/logo-choosetoshine.png" class="d-inline-block mx-4" alt="Cliente 9">
+                    <img src="./assets/img/logo-elimet.png" class="d-inline-block mx-4" alt="Cliente 10">
+                    <img src="./assets/img/logo-encanta.png" class="d-inline-block mx-4" alt="Cliente 11">
+                    <img src="./assets/img/logo-liberlink.png" class="d-inline-block mx-4" alt="Cliente 12">
+                </div>
+
+
+                <div class="carousel-item">
+                    <img src="./assets/img/logo-patroncharcuteria.png" class="d-inline-block mx-4" alt="Cliente 13">
+                    <img src="./assets/img/logo-tunquelen.png" class="d-inline-block mx-4" alt="Cliente 14">
+                    <!-- <img src="" class="d-inline-block mx-4" alt="Cliente 15">
+                    <img src="" class="d-inline-block mx-4" alt="Cliente 16">
+                    <img src="" class="d-inline-block mx-4" alt="Cliente 17">
+                    <img src="" class="d-inline-block mx-4" alt="Cliente 18">
+                    <img src="" class="d-inline-block mx-4" alt="Cliente 19">
+                    <img src="" class="d-inline-block mx-4" alt="Cliente 20"> -->
+                </div>
+
+            </div>
+        </section>
+
+        <div class="sticky-whatsapp">
+            <a href="https://wa.me/5491159969956" target="_blank" class="btn-whatsapp" aria-label="Enviar WhatsApp">
+                <img src="./assets/img/whatsapp-logo.png" alt="WhatsApp">
+            </a>
+        </div>
+    </main>
+
+    <footer><!--pie de página-->
+        <div class="contenedor-de-footer">
+            <div class="logo-footer">
+                <a href="#" title="Gestión SySO">
+                    <img src="./assets/img/Logopit_1546119869136.png" alt="Logotipo de Gestión SySO">
+                </a>
+            </div>
+
+            <div class="contacto-footer">
+                <h4>Contacto</h4>
+                <!-- Enlace con la imagen al contacto -->
+                <div class="contenedor-contacto">
+                    <div class="whatsapp-footer">
+                        <a href="https://api.whatsapp.com/send?phone=541159969956" class="icono-contacto whatsapp"
+                            target="_blank" title="Enviar Whatsapp">
+                            <img src="./assets/img/whatsapp-black.png" alt="Icono de Whatsapp">
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=541159969956">1159969956</a>
+                    </div>
+
+                    <div class="cooreo-footer">
+                        <a href="mailto:info@gestionsyso.com" class="icono-contacto correo" target="_blank"
+                            title="Enviar correo electrónico">
+                            <img src="./assets/img/mail-black.png" alt="Icono de correo electrónico">
+                        </a>
+                        <a href="mailto:info@gestionsyso.com">info@gestionsyso.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="redes-sociales-footer">
+                <h4>Visítanos en nuestras redes sociales</h4>
+                <!-- Enlace con la imagen de la red social -->
+                <div class="iconos-redes-sociales-footer">
+                    <a href="https://www.facebook.com/GestionSySO/" class="icono-red-social facebook" target="_blank"
+                        title="Visítanos en Facebook">
+                        <img src="./assets/img/facebook-black.png" alt="Icono de Facebook">
+                    </a>
+                    <a href="https://twitter.com/Gestion_SySO" class="icono-red-social twitter" target="_blank"
+                        title="Visítanos en Twitter">
+                        <img src="./assets/img/twitter-black.png" alt="Icono de Twitter">
+                    </a>
+                    <a href="https://www.instagram.com/gestionsyso/" class="icono-red-social instagram" target="_blank"
+                        title="Visítanos en Instagram">
+                        <img src="./assets/img/instagram-black.png" alt="Icono de Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/company/gestionsyso/" class="icono-red-social linkedin"
+                        target="_blank" title="Visítanos en Linkedin">
+                        <img src="./assets/img/linkedin-black.png" alt="Icono de Linkedin">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyrigh-footer">
+            <h6>Gestión SySO © 2025 - Todos los derechos reservados.</h6>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
+
+<!--
+git add .
+git commit -m ""
+git push origin main
+-->
