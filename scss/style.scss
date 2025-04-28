@@ -61,7 +61,8 @@ h6 {
     @extend %heading-styles;
 }
 
-h1, h2 {
+h1,
+h2 {
     padding-bottom: 20px;
 }
 
@@ -322,20 +323,20 @@ footer {
 //     width: 100%;
 //     border-bottom: 1px solid grey;
 //   }
-  
+
 //   .video-banner-inicio {
 //     width: 100%;
 //     max-width: 100%;
 //     height: auto;
 //   }
-  
+
 //   /*--  INICIO: Servicio  --*/
 //   h1 a {
 //     text-decoration: none;
 //     color: #000000;
 //     font-size: 40px;
 //   }
-  
+
 //   .servicios-inicio, .servicios-equipo {
 //     display: flex;
 //     flex-direction: column;
@@ -356,25 +357,35 @@ footer {
     padding: 20px 80px;
 
     h1,
-    h2, h4 {
+    h2,
+    h4 {
         text-align: center;
     }
+
     p {
         text-align: justify;
     }
 
-ul {
+    ul {
         text-align: justify;
     }
 
 }
-.grid {
-    display: grid;
-    grid-gap: 20px;
-    padding: 20px 80px;
+
+.container {
+    display: flex;
+    gap: 35px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 20px;
+
     img {
-        width: 10%;
+        width: 500px;
         height: auto;
+
     }
 }
 
