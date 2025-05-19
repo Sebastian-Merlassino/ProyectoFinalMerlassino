@@ -1,0 +1,187 @@
+const limites = [
+  // Tabla 1
+  {
+    tabla: 1,
+    altura:
+      "Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 16,
+  },
+  {
+    tabla: 1,
+    altura:
+      "Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo",
+    distancia:
+      "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+    limite: 7,
+  },
+  {
+    tabla: 1,
+    altura: "Desde la altura de los nudillos hasta por debajo del hombro",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 32,
+  },
+  {
+    tabla: 1,
+    altura: "Desde la altura de los nudillos hasta por debajo del hombro",
+    distancia:
+      "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+    limite: 16,
+  },
+  {
+    tabla: 1,
+    altura: "Desde la altura de los nudillos hasta por debajo del hombro",
+    distancia:
+      "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
+    limite: 9,
+  },
+  {
+    tabla: 1,
+    altura: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 18,
+  },
+  {
+    tabla: 1,
+    altura: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    distancia:
+      "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+    limite: 14,
+  },
+  {
+    tabla: 1,
+    altura: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    distancia:
+      "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
+    limite: 7,
+  },
+  {
+    tabla: 1,
+    altura: "Desde el suelo hasta la mitad de la espinilla",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 14,
+  },
+
+  // Tabla 2
+  {
+    tabla: 2,
+    altura:
+      "Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 14,
+  },
+  {
+    tabla: 2,
+    altura:
+      "Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo",
+    distancia:
+      "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+    limite: 5,
+  },
+  {
+    tabla: 2,
+    altura: "Desde la altura de los nudillos hasta por debajo del hombro",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 27,
+  },
+  {
+    tabla: 2,
+    altura: "Desde la altura de los nudillos hasta por debajo del hombro",
+    distancia:
+      "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+    limite: 14,
+  },
+  {
+    tabla: 2,
+    altura: "Desde la altura de los nudillos hasta por debajo del hombro",
+    distancia:
+      "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
+    limite: 7,
+  },
+  {
+    tabla: 2,
+    altura: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 16,
+  },
+  {
+    tabla: 2,
+    altura: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    distancia:
+      "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+    limite: 11,
+  },
+  {
+    tabla: 2,
+    altura: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    distancia:
+      "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
+    limite: 5,
+  },
+  {
+    tabla: 2,
+    altura: "Desde el suelo hasta la mitad de la espinilla",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 14,
+  },
+
+  // Tabla 3
+  {
+    tabla: 3,
+    altura:
+      "Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 11,
+  },
+  {
+    tabla: 3,
+    altura: "Desde la altura de los nudillos hasta por debajo del hombro",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 14,
+  },
+  {
+    tabla: 3,
+    altura: "Desde la altura de los nudillos hasta por debajo del hombro",
+    distancia:
+      "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+    limite: 9,
+  },
+  {
+    tabla: 3,
+    altura: "Desde la altura de los nudillos hasta por debajo del hombro",
+    distancia:
+      "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
+    limite: 5,
+  },
+  {
+    tabla: 3,
+    altura: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    distancia:
+      "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    limite: 9,
+  },
+  {
+    tabla: 3,
+    altura: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    distancia:
+      "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+    limite: 7,
+  },
+  {
+    tabla: 3,
+    altura: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    distancia:
+      "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
+    limite: 2,
+  },
+];
