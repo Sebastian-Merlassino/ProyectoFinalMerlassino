@@ -563,23 +563,23 @@ footer {
 //     padding: 0;
 // }
 
-// input,
-// textarea,
-// select {
-//     cursor: url('../assets/img/text-cursor.cur'), text !important;
+input,
+textarea,
+select {
+    cursor: url('../assets/img/text-cursor.cur'), text !important;
 
-//     &:focus {
-//         cursor: url('../assets/img/text-cursor.cur'), text !important;
-//     }
+    &:focus {
+        cursor: url('../assets/img/text-cursor.cur'), text !important;
+    }
 
-//     &:hover {
-//         cursor: url('../assets/img/text-cursor.cur'), text !important;
-//     }
+    &:hover {
+        cursor: url('../assets/img/text-cursor.cur'), text !important;
+    }
 
-//     &:active {
-//         cursor: url('../assets/img/text-cursor.cur'), text !important;
-//     }
-// }
+    &:active {
+        cursor: url('../assets/img/text-cursor.cur'), text !important;
+    }
+}
 
 /* Estilos de Google Maps */
 
