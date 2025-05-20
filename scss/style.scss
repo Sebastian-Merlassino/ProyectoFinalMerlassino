@@ -373,21 +373,31 @@ footer {
 
 }
 
+
+.resultado-lmc {
+    display: block;
+    border: 2px solid $color-grey;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: $color-lightgray;
+}
+
 .container {
-    display: flex;
-    gap: 35px;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin-bottom: 20px;
+    // display: flex;
+    // gap: 35px;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center;
+    // align-content: center;
+    margin-bottom: 25px;
 
-    img {
-        width: 500px;
-        height: auto;
+    // img {
+    //     width: 500px;
+    //     height: auto;
 
-    }
+    // }
 }
 
 /*--  INICIO: Servicio  --*/
@@ -547,13 +557,16 @@ footer {
 //     padding: 20px 80px;
 // }
 
-// /* Estilos de formulario */
-// .custom-fieldset {
-//     height: 100%;
-//     border: 2px solid $color-blue;
-//     padding: 15px;
-//     border-radius: 10px;
-// }
+/* Estilos de formulario */
+.container-fluid {
+    width: 85%;
+    height: 100%;
+    border: 2px solid $color-blue;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+
 
 // .custom-fieldset legend {
 //     @include font-family($font-secondary);

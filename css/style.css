@@ -296,19 +296,17 @@ footer a {
   text-align: justify;
 }
 
-.container {
-  display: flex;
-  gap: 35px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-bottom: 20px;
+.resultado-lmc {
+  display: block;
+  border: 2px solid grey;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: #d9d9d9;
 }
-.container img {
-  width: 500px;
-  height: auto;
+
+.container {
+  margin-bottom: 25px;
 }
 
 /*--  INICIO: Servicio  --*/
@@ -332,6 +330,36 @@ footer a {
 /*--  SERVICIOS  --*/
 /*--  NOTICIAS  --*/
 /*--  CONTACTO  --*/
+/* Estilos de formulario */
+.container-fluid {
+  width: 85%;
+  height: 100%;
+  border: 2px solid #448ff2;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+input,
+textarea,
+select {
+  cursor: url("../assets/img/text-cursor.cur"), text !important;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  cursor: url("../assets/img/text-cursor.cur"), text !important;
+}
+input:hover,
+textarea:hover,
+select:hover {
+  cursor: url("../assets/img/text-cursor.cur"), text !important;
+}
+input:active,
+textarea:active,
+select:active {
+  cursor: url("../assets/img/text-cursor.cur"), text !important;
+}
+
 /* Estilos de Google Maps */
 
 /*# sourceMappingURL=style.css.map */
