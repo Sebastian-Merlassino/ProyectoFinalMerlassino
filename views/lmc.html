@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ecaluación ergonómica para el Levantamiento manual de cargas, según Resolución 295/03.">
+    <meta name="keywords"
+        content="Gestión SySO, Ergonomía, Levantamiento manual de cargas, Resolución 295/03, higiene y seguridad, prevención de riesgos laborales, seguridad en el trabajo">
+    <title>Gestión SySO - Ergonomía</title>
+    <link rel="icon" type="image/png" href="../assets/img/helmet.png">
+
+    <!--CSS boostrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/style.css"><!--enlace con css-->
+
+    <script src="../limites.js"></script>
+    <script defer src="../main.js"></script>
+
+</head>
+
+<body>
+
+    <header class="fixed-top">
+        <nav class="navbar desktop-navbar fixed-top">
+            <a href="../index.html" title="Gestión SySO">
+                <img src="../assets/img/Logopit_1546119869136.png" alt="Logotipo de Gestión SySO">
+            </a>
+            <ul class="nav nav-underline justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Ergonomía</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!--encabezado mobile-->
+        <nav class="navbar bg-body-tertiary fixed-top mobile-navbar">
+            <div class="container-fluid">
+                <a href="../index.html" title="Gestión SySO">
+                    <img src="../assets/img/Logopit_1546119869136.png" alt="Logotipo de Gestión SySO">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <img src="../assets/img/Logopit_1546119869136.png" alt="Logotipo de Gestión SySO">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav nav-underline justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="../index.html">Ergonomía</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main><!--contenido principal de la página-->
+        <section class="lmc">
+            <h1>Evaluación de Levantamiento Manual de Cargas</h1>
+        
+            <div class="grid container">
+
+                <div class="tabla">
+                    <img src="../assets/img/tabla1-res295.png" alt="Tabla 1">
+                </div>
+                <div class="tabla">
+                    <img src="../assets/img/tabla2-res295.png" alt="Tabla 2">
+                </div>
+                <div class="tabla">
+                    <img src="../assets/img/tabla3-res295.png" alt="Tabla 3">
+                </div>
+
+            </div>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" />
+
+            <label for="empresa">Empresa (Razón social):</label>
+            <input type="text" id="empresa" />
+          
+            <label for="sector">Área / Sector:</label>
+            <input type="text" id="sector" />
+          
+            <label for="puesto">Puesto:</label>
+            <input type="text" id="puesto" />
+          
+            <label for="tarea">Tarea:</label>
+            <input type="text" id="tarea" />
+
+            <label for="tabla">Seleccione la Tabla, según la duración y frecuencia de los levantamientos</label>
+            <select id="tabla">
+                <option value="">Seleccione una opción</option>
+                <option value="1">Tabla 1: Realiza tareas hasta 2 horas al día y con hasta 60 levantamientos por hora, o de mas de 2 horas al día y con hasta 12 levantamientos por hora</option>
+                <option value="2">Tabla 2: Realiza tareas de mas de 2 horas al día y de 12 a 30 levantamientos por hora, o hasta 2 horas al día y de 60 a 360 levantamientos por hora</option>
+                <option value="3">Tabla 3: Realiza tareas de mas de 2 horas al día y de 30 a 360 levantamientos por hora</option>
+            </select>
+        
+            <label for="altura">Seleccione la altura del levantamiento</label>
+            <select id="altura">
+                <option value="">Seleccione una opción</option>
+                <option value="1">Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo</option>
+                <option value="2">Desde la altura de los nudillos hasta por debajo del hombro</option>
+                <option value="3">Desde la mitad de la espinilla hasta la altura de los nudillos</option>
+                <option value="4">Desde el suelo hasta la mitad de la espinilla</option>
+            </select>
+        
+            <label for="distancia">Distancia horizontal del levantamiento:</label>
+            <select id="distancia">
+                <option value="">Seleccione una opción</option>
+                <option value="1">Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos</option>
+                <option value="2">Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos</option>
+                <option value="3">Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos</option>
+            </select>
+        
+            <label for="peso">Peso levantado (kg):</label>
+            <input type="number" id="peso" step="0.1" min="0" />
+        
+            <button id="calcular" class="btn btn-primary">Calcular</button>
+            <button id="limpiar" class="btn btn-primary">Limpiar</button>
+        
+            <div id="resultado"></div>
+        
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="sticky-whatsapp">
+            <a href="https://wa.me/5491159969956" target="_blank" class="btn-whatsapp" aria-label="Enviar WhatsApp">
+                <img src="../assets/img/whatsapp-logo.png" alt="WhatsApp">
+            </a>
+        </div>
+    </main>
+
+    <footer><!--pie de página-->
+        <div class="contenedor-de-footer">
+            <div class="logo-footer">
+                <a href="#" title="Gestión SySO">
+                    <img src="../assets/img/Logopit_1546119869136.png" alt="Logotipo de Gestión SySO">
+                </a>
+            </div>
+
+            <div class="contacto-footer">
+                <h4>Contacto</h4>
+                <!-- Enlace con la imagen al contacto -->
+                <div class="contenedor-contacto">
+                    <div class="whatsapp-footer">
+                        <a href="https://api.whatsapp.com/send?phone=541159969956" class="icono-contacto whatsapp"
+                            target="_blank" title="Enviar Whatsapp">
+                            <img src="../assets/img/whatsapp-black.png" alt="Icono de Whatsapp">
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=541159969956">1159969956</a>
+                    </div>
+
+                    <div class="cooreo-footer">
+                        <a href="mailto:info@gestionsyso.com" class="icono-contacto correo" target="_blank"
+                            title="Enviar correo electrónico">
+                            <img src="../assets/img/mail-black.png" alt="Icono de correo electrónico">
+                        </a>
+                        <a href="mailto:info@gestionsyso.com">info@gestionsyso.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="redes-sociales-footer">
+                <h4>Visítanos en nuestras redes sociales</h4>
+                <!-- Enlace con la imagen de la red social -->
+                <div class="iconos-redes-sociales-footer">
+                    <a href="https://www.facebook.com/GestionSySO/" class="icono-red-social facebook" target="_blank"
+                        title="Visítanos en Facebook">
+                        <img src="../assets/img/facebook-black.png" alt="Icono de Facebook">
+                    </a>
+                    <a href="https://twitter.com/Gestion_SySO" class="icono-red-social twitter" target="_blank"
+                        title="Visítanos en Twitter">
+                        <img src="../assets/img/twitter-black.png" alt="Icono de Twitter">
+                    </a>
+                    <a href="https://www.instagram.com/gestionsyso/" class="icono-red-social instagram" target="_blank"
+                        title="Visítanos en Instagram">
+                        <img src="../assets/img/instagram-black.png" alt="Icono de Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/company/gestionsyso/" class="icono-red-social linkedin"
+                        target="_blank" title="Visítanos en Linkedin">
+                        <img src="../assets/img/linkedin-black.png" alt="Icono de Linkedin">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyrigh-footer">
+            <h6>Gestión SySO © 2025 - Todos los derechos reservados.</h6>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<!--
+git add .
+git commit -m ""
+git push origin main
+-->
