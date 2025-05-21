@@ -57,7 +57,6 @@ body {
   font-family: "Roboto", sans-serif, sans-serif;
   font-size: 20px;
   line-height: 1.6;
-  cursor: url("../assets/img/cursor.cur"), default !important;
 }
 
 button,
@@ -66,7 +65,6 @@ a {
   font-family: "Inter", sans-serif, sans-serif;
   font-weight: 600;
   font-size: 20px;
-  cursor: url("../assets/img/hand-cursor.cur"), pointer !important;
 }
 
 html,
@@ -318,7 +316,6 @@ footer a {
   font-weight: 700;
   font-size: 25px;
   margin: 35px;
-  cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 .btn:hover {
@@ -337,27 +334,6 @@ footer a {
   border: 2px solid #448ff2;
   padding: 15px;
   border-radius: 10px;
-}
-
-input,
-textarea,
-select {
-  cursor: url("../assets/img/text-cursor.cur"), text !important;
-}
-input:focus,
-textarea:focus,
-select:focus {
-  cursor: url("../assets/img/text-cursor.cur"), text !important;
-}
-input:hover,
-textarea:hover,
-select:hover {
-  cursor: url("../assets/img/text-cursor.cur"), text !important;
-}
-input:active,
-textarea:active,
-select:active {
-  cursor: url("../assets/img/text-cursor.cur"), text !important;
 }
 
 /* Estilos de Google Maps */
