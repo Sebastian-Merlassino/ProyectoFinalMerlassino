@@ -20,6 +20,27 @@
   const divResultado = document.getElementById("resultado");
   divResultado.style.display = "none"; //oculta el cuadro de resultado al cargar la página
 
+let limites = [];
+
+fetch('data/limites.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('No se pudo cargar el archivo JSON');
+    }
+    return response.json();
+  })
+  .then(data => {
+    limites = data;
+    onsole.log("Limites cargados:", limites); // 👈 confirmación
+  })
+  .catch(error => {
+    console.error('Error al cargar los límites:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error al cargar datos',
+      text: 'No se pudieron cargar los límites de levantamiento. Intente nuevamente.'
+    });
+  });
 
 // Evento: clic en botón calcular
 document.getElementById("calcular").addEventListener("click", () => {
