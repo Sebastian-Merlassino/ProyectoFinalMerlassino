@@ -81,7 +81,7 @@ document.getElementById("calcular").addEventListener("click", () => {
     <p><strong>Peso levantado:</strong> ${peso} kg</p>
     <p><strong>Límite:</strong> ${resultado.limite} kg</p>
     <p style="color:${admisible ? 'green' : 'red'};">
-      <strong>${admisible ? '✅ La carga es admisible, para la altura y distancia de levantamiento ingresados.' : '❌ La carga NO es admisible para la altura y distancia de levantamiento ingresados.'} para la altura y distancia seleccionadas.</strong>
+      <strong>${admisible ? '✅ La carga es admisible, para la altura y distancia de levantamiento ingresados.' : '❌ La carga NO es admisible para la altura y distancia de levantamiento ingresados.'}</strong>
     </p>`;
     divResultado.classList.add("resultado-lmc");
     divResultado.style.display = "block";
