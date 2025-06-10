@@ -22,7 +22,7 @@
 
 let limites = [];
 
-fetch('data/limites.json')
+fetch('../data/limites.json')
   .then(response => {
     if (!response.ok) {
       throw new Error('No se pudo cargar el archivo JSON');
@@ -31,7 +31,7 @@ fetch('data/limites.json')
   })
   .then(data => {
     limites = data;
-    onsole.log("Limites cargados:", limites); // 👈 confirmación
+    console.log("Limites cargados:", limites); // 👈 confirmación
   })
   .catch(error => {
     console.error('Error al cargar los límites:', error);
@@ -115,7 +115,6 @@ document.getElementById("calcular").addEventListener("click", () => {
     peso, limite: resultado.limite, admisible
   });
   localStorage.setItem("evaluaciones", JSON.stringify(evaluaciones));
-  mostrarHistorial();
 });
 
 // Botón limpiar campos
