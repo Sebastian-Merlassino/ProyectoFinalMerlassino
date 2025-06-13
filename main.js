@@ -1,3 +1,5 @@
+
+// referencia de las tablas de levantamiento manual de cargas (LMC) según la resolución 295/03
 const textoTabla = {
   1: "Tabla 1: Realiza tareas hasta 2 horas al día y con hasta 60 levantamientos por hora, o de mas de 2 horas al día y con hasta 12 levantamientos por hora",
   2: "Tabla 2: Realiza tareas de mas de 2 horas al día y de 12 a 30 levantamientos por hora, o hasta 2 horas al día y de 60 a 360 levantamientos por hora",
@@ -17,9 +19,12 @@ const textoDistancia = {
   3: "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
 };
 
-const divResultado = document.getElementById("resultado");
-divResultado.style.display = "none"; //oculta el cuadro de resultado al cargar la página
 
+// contenedor de resultados
+const divResultado = document.getElementById("resultado");
+divResultado.style.display = "none";
+
+// Cargar los límites de levantamiento desde el archivo JSON
 let limites = [];
 
 fetch("../data/limites.json")
@@ -47,7 +52,38 @@ fetch("../data/limites.json")
   });
 
 
-// Evento: clic en botón calcular
+// Evento: clic en botón para ver tablas
+document.getElementById("btn-tabla1").addEventListener("click", () => {
+  Swal.fire({
+    title: "Tabla 1 - Resolución 295/03",
+    imageUrl: "../assets/img/tabla1-res295.png",
+    imageAlt: "Tabla 1",
+    confirmButtonText: "Cerrar",
+    width: 600,
+  });
+});
+
+document.getElementById("btn-tabla2").addEventListener("click", () => {
+  Swal.fire({
+    title: "Tabla 2 - Resolución 295/03",
+    imageUrl: "../assets/img/tabla2-res295.png",
+    imageAlt: "Tabla 2",
+    confirmButtonText: "Cerrar",
+    width: 600,
+  });
+});
+
+document.getElementById("btn-tabla3").addEventListener("click", () => {
+  Swal.fire({
+    title: "Tabla 3 - Resolución 295/03",
+    imageUrl: "../assets/img/tabla3-res295.png",
+    imageAlt: "Tabla 3",
+    confirmButtonText: "Cerrar",
+    width: 600,
+  });
+});
+
+// Evento: clic en botón para calcular
 document.getElementById("calcular").addEventListener("click", () => {
   let fechaInput = document.getElementById("fecha").value;
   let fecha = "";
@@ -72,15 +108,15 @@ document.getElementById("calcular").addEventListener("click", () => {
   const distancia = parseInt(document.getElementById("distancia").value);
   const peso = parseFloat(document.getElementById("peso").value);
 
-if (!tabla || !altura || !distancia || isNaN(peso)) {
-  Swal.fire({
-    icon: "warning",
-    title: "Campos incompletos",
-    text: "Por favor, completá todos los campos obligatorios",
-    confirmButtonText: "Cerrar"
-  });
-  return;
-}
+  if (!tabla || !altura || !distancia || isNaN(peso)) {
+    Swal.fire({
+      icon: "warning",
+      title: "Campos incompletos",
+      text: "Por favor, completá todos los campos obligatorios",
+      confirmButtonText: "Cerrar",
+    });
+    return;
+  }
 
   const alturaTexto = textoAltura[altura];
   const distanciaTexto = textoDistancia[distancia];
@@ -115,13 +151,15 @@ if (!tabla || !altura || !distancia || isNaN(peso)) {
     <p><strong>Distancia:</strong> ${distanciaTexto}</p>
     <p><strong>Peso levantado:</strong> ${peso} kg</p>
     <p><strong>Límite:</strong> ${resultado.limite} kg</p>
-    <p style="color:${admisible ? "green" : "red"};">
-      <strong>${
-        admisible
-          ? "✅ La carga es admisible, para la altura y distancia de levantamiento ingresados."
-          : "❌ La carga NO es admisible para la altura y distancia de levantamiento ingresados."
-      }</strong>
-    </p>`;
+    <div style="border: 2px solid grey; border-radius: 10px; background-color: white; padding: 10px; margin: 15px; text-align: center">
+      <p style="color:${admisible ? "green" : "red"}; font-weight: bold;">
+        ${
+          admisible
+            ? "✅ La carga es admisible, para la altura y distancia de levantamiento ingresados."
+            : "❌ La carga NO es admisible para la altura y distancia de levantamiento ingresados."
+        }
+      </p>
+    </div>`;
   divResultado.classList.add("resultado-lmc");
   divResultado.style.display = "block";
 

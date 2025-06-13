@@ -70,25 +70,7 @@
     <main>
         <section class="lmc">
             <h1>Evaluación de Levantamiento Manual de Cargas</h1>
-        
-            <div class="container">
-                <div class="row text-center g-3">
-                    
-                    <div class="col-md-4 col-sm-12">
-                    <img src="../assets/img/tabla1-res295.png" alt="Tabla 1" class="img-fluid">
-                    </div>
-
-                    <div class="col-md-4 col-sm-12">
-                    <img src="../assets/img/tabla2-res295.png" alt="Tabla 2" class="img-fluid">
-                    </div>
-
-                    <div class="col-md-4 col-sm-12">
-                    <img src="../assets/img/tabla3-res295.png" alt="Tabla 3" class="img-fluid">
-                    </div>
-
-                </div>
-            </div>
-        
+                
             <div class="container-fluid">
                 <div class="input-group mb-3">
                     <label class="input-group-text" id="inputGroup-sizing-default">Fecha:</label>
@@ -118,6 +100,9 @@
             
                 <div class="mb-3">
                     <label for="tabla">Seleccione la Tabla, según la duración y frecuencia de los levantamientos (*)</label>
+                    <button type="button" id="btn-tabla1" class="btn btn-secondary btn-sm">Tabla 1</button>
+                    <button type="button" id="btn-tabla2" class="btn btn-secondary btn-sm">Tabla 2</button>
+                    <button type="button" id="btn-tabla3" class="btn btn-secondary btn-sm">Tabla 3</button>
                     <select id="tabla" class="form-select" aria-label="Default select example" required>
                         <option value="">Seleccione una opción</option>
                         <option value="1">Tabla 1: Realiza tareas hasta 2 horas al día y con hasta 60 levantamientos por hora, o de
@@ -144,9 +129,6 @@
                 
                 <div class="mb-3">
                     <label for="distancia">Distancia horizontal del levantamiento (*)</label>
-                    <button type="button" class="btn btn-secondary btn-sm">Tabla 1</button>
-                    <button type="button" class="btn btn-secondary btn-sm">Tabla 2</button>
-                    <button type="button" class="btn btn-secondary btn-sm">Tabla 3</button>
                     <select id="distancia" class="form-select" aria-label="Default select example" required>
                         <option value="">Seleccione una opción</option>
                         <option value="1">Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos</option>
