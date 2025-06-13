@@ -31,16 +31,21 @@ fetch("../data/limites.json")
   })
   .then((data) => {
     limites = data;
-    console.log("Limites cargados:", limites); // 👈 confirmación
+    console.log("Limites cargados:", limites);
   })
+
   .catch((error) => {
     console.error("Error al cargar los límites:", error);
-    Swal.fire({
-      icon: "error",
-      title: "Error al cargar datos",
-      text: "No se pudieron cargar los límites de levantamiento. Intente nuevamente.",
-    });
+    Toastify({
+      text: "⚠️ Error al cargar los límites de levantamiento.",
+      duration: 5000,
+      gravity: "top",
+      position: "center",
+      backgroundColor: "#e74c3c",
+      stopOnFocus: true,
+    }).showToast();
   });
+
 
 // Evento: clic en botón calcular
 document.getElementById("calcular").addEventListener("click", () => {
@@ -67,13 +72,15 @@ document.getElementById("calcular").addEventListener("click", () => {
   const distancia = parseInt(document.getElementById("distancia").value);
   const peso = parseFloat(document.getElementById("peso").value);
 
-  if (!tabla || !altura || !distancia || isNaN(peso)) {
-    document.getElementById("resultado").innerHTML =
-      "<p style='color:red;'>⚠️ Por favor, complete todos los campos obligatorios: Tabla, Altura de levantamiento, Distancia horizontal del levantamiento y Peso levantado.</p>";
-    divResultado.classList.add("resultado-lmc");
-    divResultado.style.display = "block";
-    return;
-  }
+if (!tabla || !altura || !distancia || isNaN(peso)) {
+  Swal.fire({
+    icon: "warning",
+    title: "Campos incompletos",
+    text: "Por favor, completá todos los campos obligatorios",
+    confirmButtonText: "Cerrar"
+  });
+  return;
+}
 
   const alturaTexto = textoAltura[altura];
   const distanciaTexto = textoDistancia[distancia];

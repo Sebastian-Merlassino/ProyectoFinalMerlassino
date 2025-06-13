@@ -80,7 +80,7 @@ body {
     @include font-family($font-primary);
     @include font-size(20px);
     line-height: 1.6;
-    // cursor: url('../assets/img/cursor.cur'), default !important;
+
 
 }
 
@@ -90,7 +90,7 @@ a {
     @include font-family($font-tertiary);
     font-weight: 600;
     @include font-size(20px);
-    // cursor: url('../assets/img/hand-cursor.cur'), pointer !important;
+
 
 }
 
@@ -173,11 +173,11 @@ main {
 // BOTÓN DE WHATSAPP
 .sticky-whatsapp {
     position: sticky;
-    bottom: 20px; // se pega a la parte inferior del viewport
+    bottom: 20px; 
     display: flex;
-    justify-content: flex-end; // alinea el contenido a la derecha
+    justify-content: flex-end; 
     width: 100%;
-    padding-right: 30px; // separa del borde
+    padding-right: 30px; 
     z-index: 10;
 
     a {
@@ -315,39 +315,6 @@ footer {
     margin-top: 30px;
 }
 
-/*--  INICIO  --*/
-// .contenedor-video-banner-inicio {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     width: 100%;
-//     border-bottom: 1px solid grey;
-//   }
-
-//   .video-banner-inicio {
-//     width: 100%;
-//     max-width: 100%;
-//     height: auto;
-//   }
-
-//   /*--  INICIO: Servicio  --*/
-//   h1 a {
-//     text-decoration: none;
-//     color: #000000;
-//     font-size: 40px;
-//   }
-
-//   .servicios-inicio, .servicios-equipo {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: 20px 80px;
-//   }
-//   .servicios-inicio img, .servicios-equipo img {
-//     width: 200px;
-//     height: auto;
-//     margin: 30px;
-//   }
 
 .lmc {
     display: flex;
@@ -384,81 +351,20 @@ footer {
 }
 
 .container {
-    // display: flex;
-    // gap: 35px;
-    // flex-direction: row;
-    // flex-wrap: wrap;
-    // justify-content: center;
-    // align-items: center;
-    // align-content: center;
     margin-bottom: 25px;
 
-    // img {
-    //     width: 500px;
-    //     height: auto;
-
-    // }
 }
 
-/*--  INICIO: Servicio  --*/
-// h1 a {
-//     text-decoration: none;
-//     color: #000000;
-//     font-size: 40px;
-// }
-// .servicios-inicio, .servicios-equipo {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: 20px 80px;
-// }
-// .servicios-inicio img, .servicios-equipo img {
-//     width: 200px;
-//     height: auto
-// }
-// .card-body {
-//     width: 100%;
-//     text-align: center;
-// }
-
-// .card-title {
-//     text-align: center;
-
-// }
-
-// .card-text {
-//     text-align: center;
-
-// }
-
-// .card {
-//     width: 100%;
-//     align-items: center;
-//     border-radius: 10px;
-//     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
-// }
-
-// .card:hover {
-
-//     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-//     img {
-//         transition: transform 0.3s ease-in-out;
-//         transform: scale(1.1);
-//         }
-//     }
 
 
-
-.btn {
-    padding: 15px 20px;
+.btn.btn-primary {
+    padding: 10px 20px;
     border-radius: 10px;
     background-color: $color-blue;
     color: $color-white;
     font-weight: 700;
     font-size: 25px;
-    margin: 35px;
-    // cursor: pointer;
+    margin: 20px;
     transition: 0.2s ease-in-out;
 
     &:hover {
@@ -467,152 +373,25 @@ footer {
     }
 }
 
-/*--  INICIO: Clientes --*/
 
-// hr {
-//     width: 100%;
-//     border: 1px solid $color-grey;
-//     margin: 20px 0px;
-// }
-
-// .carousel {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     width: 100%;
-//     max-width: 100%;
-//     margin: 0 auto;
-//     padding: 20px 80px;
-
-
-//     h2 {
-//         margin-bottom: 30px;
-
-//     }
-// }
-
-// .carousel-inner img {
-//     max-height: 100px;
-//     transition: transform 0.5s ease-in-out;
-//     filter: grayscale(100%);
-
-// }
-
-// .carousel-inner img:hover {
-//     transform: scale(1.1);
-//     filter: grayscale(0%);
-// }
-
-
-// /*--  NOSOTROS  --*/
-
-// .nosotros {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: 20px 80px;
-
-//     div {
-//         align-items: left;
-//     }
-// }
-
-/*--  SERVICIOS  --*/
-
-// .servicios {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: 20px 80px;
-
-// }
-
-// .servicios img {
-//     width: 200px;
-//     height: auto;
-//     margin: 20px;
-// }
-
-
-
-
-/*--  NOTICIAS  --*/
-
-// .noticias {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: 20px 80px;
-
-// }
-
-/*--  CONTACTO  --*/
-
-// .contenedor-contacto-googlemaps {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr;
-//     gap: 50px;
-//     width: 100%;
-//     margin: 0 auto;
-//     padding: 20px 80px;
-// }
 
 /* Estilos de formulario */
 .container-fluid {
-    width: 85%;
+    width: 100%;
     height: 100%;
     border: 2px solid $color-blue;
-    padding: 15px;
+    padding: 25px 55px;
     border-radius: 10px;
 }
+ .fecha {
+    display: flex;
+ }
 
-
-
-// .custom-fieldset legend {
-//     @include font-family($font-secondary);
-//     @include font-size(24px);
-//     font-weight: bold;
-//     color: $color-black;
-//     padding: 0;
-// }
-
-// input,
-// textarea,
-// select {
-//     cursor: url('../assets/img/text-cursor.cur'), text !important;
-
-//     &:focus {
-//         cursor: url('../assets/img/text-cursor.cur'), text !important;
-//     }
-
-//     &:hover {
-//         cursor: url('../assets/img/text-cursor.cur'), text !important;
-//     }
-
-//     &:active {
-//         cursor: url('../assets/img/text-cursor.cur'), text !important;
-//     }
-// }
-
-/* Estilos de Google Maps */
-
-// .contenedor-googlemaps {
-//     cursor: url('../assets/img/hand.cur'), grab !important;
-
-//     &:active {
-//         cursor: url('../assets/img/hand-rock.cur'), grabbing !important;
-
-//     }
-// }
-
-// .googlemaps {
-//     width: 100%;
-//     height: 100%;
-//     border-radius: 10px;
-//     border: 2px solid $color-blue;
-
-// }
-
+ .input-group-text {
+    background-color: $color-blue;
+    color: $color-white;
+    font-weight: 700;
+ }
 
 // /*--  MEDIA QUERIES  --*/
 // @include media-max(1024px) {
