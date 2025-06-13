@@ -1,51 +1,62 @@
-  const textoTabla = {
-    1: "Tabla 1: Realiza tareas hasta 2 horas al día y con hasta 60 levantamientos por hora, o de mas de 2 horas al día y con hasta 12 levantamientos por hora",
-    2: "Tabla 2: Realiza tareas de mas de 2 horas al día y de 12 a 30 levantamientos por hora, o hasta 2 horas al día y de 60 a 360 levantamientos por hora",
-    3: "Tabla 3: Realiza tareas de mas de 2 horas al día y de 30 a 360 levantamientos por hora",
-  };
+const textoTabla = {
+  1: "Tabla 1: Realiza tareas hasta 2 horas al día y con hasta 60 levantamientos por hora, o de mas de 2 horas al día y con hasta 12 levantamientos por hora",
+  2: "Tabla 2: Realiza tareas de mas de 2 horas al día y de 12 a 30 levantamientos por hora, o hasta 2 horas al día y de 60 a 360 levantamientos por hora",
+  3: "Tabla 3: Realiza tareas de mas de 2 horas al día y de 30 a 360 levantamientos por hora",
+};
 
-  const textoAltura = {
-    1: "Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo",
-    2: "Desde la altura de los nudillos hasta por debajo del hombro",
-    3: "Desde la mitad de la espinilla hasta la altura de los nudillos",
-    4: "Desde el suelo hasta la mitad de la espinilla",
-  };
+const textoAltura = {
+  1: "Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo",
+  2: "Desde la altura de los nudillos hasta por debajo del hombro",
+  3: "Desde la mitad de la espinilla hasta la altura de los nudillos",
+  4: "Desde el suelo hasta la mitad de la espinilla",
+};
 
-  const textoDistancia = {
-    1: "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
-    2: "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
-    3: "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
-  };
+const textoDistancia = {
+  1: "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+  2: "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+  3: "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
+};
 
-  const divResultado = document.getElementById("resultado");
-  divResultado.style.display = "none"; //oculta el cuadro de resultado al cargar la página
+const divResultado = document.getElementById("resultado");
+divResultado.style.display = "none"; //oculta el cuadro de resultado al cargar la página
 
 let limites = [];
 
-fetch('../data/limites.json')
-  .then(response => {
+fetch("../data/limites.json")
+  .then((response) => {
     if (!response.ok) {
-      throw new Error('No se pudo cargar el archivo JSON');
+      throw new Error("No se pudo cargar el archivo JSON");
     }
     return response.json();
   })
-  .then(data => {
+  .then((data) => {
     limites = data;
     console.log("Limites cargados:", limites); // 👈 confirmación
   })
-  .catch(error => {
-    console.error('Error al cargar los límites:', error);
+  .catch((error) => {
+    console.error("Error al cargar los límites:", error);
     Swal.fire({
-      icon: 'error',
-      title: 'Error al cargar datos',
-      text: 'No se pudieron cargar los límites de levantamiento. Intente nuevamente.'
+      icon: "error",
+      title: "Error al cargar datos",
+      text: "No se pudieron cargar los límites de levantamiento. Intente nuevamente.",
     });
   });
 
 // Evento: clic en botón calcular
 document.getElementById("calcular").addEventListener("click", () => {
-  
-  let fecha = document.getElementById("fecha").value;
+  let fechaInput = document.getElementById("fecha").value;
+  let fecha = "";
+
+  if (!fechaInput) {
+    const ahora = new Date();
+    fecha = ahora.toLocaleDateString("es-AR");
+  } else {
+    const partes = fechaInput.split("-");
+    const año = partes[0];
+    const mes = partes[1];
+    const dia = partes[2];
+    fecha = `${dia}/${mes}/${año}`;
+  }
   const empresa = document.getElementById("empresa").value;
   const sector = document.getElementById("sector").value;
   const puesto = document.getElementById("puesto").value;
@@ -57,15 +68,11 @@ document.getElementById("calcular").addEventListener("click", () => {
   const peso = parseFloat(document.getElementById("peso").value);
 
   if (!tabla || !altura || !distancia || isNaN(peso)) {
-    document.getElementById("resultado").innerHTML = "<p style='color:red;'>⚠️ Por favor, complete todos los campos obligatorios: Tabla, Altura de levantamiento, Distancia horizontal del levantamiento y Peso levantado.</p>";
+    document.getElementById("resultado").innerHTML =
+      "<p style='color:red;'>⚠️ Por favor, complete todos los campos obligatorios: Tabla, Altura de levantamiento, Distancia horizontal del levantamiento y Peso levantado.</p>";
     divResultado.classList.add("resultado-lmc");
     divResultado.style.display = "block";
     return;
-  }
-
-  if (!fecha) {
-    const ahora = new Date();
-    fecha = ahora.toLocaleDateString("es-AR");
   }
 
   const alturaTexto = textoAltura[altura];
@@ -79,9 +86,9 @@ document.getElementById("calcular").addEventListener("click", () => {
       item.distancia === distanciaTexto
   );
 
-
   if (!resultado) {
-    divResultado.innerHTML = "<p>⚠️ No se conoce un límite seguro para levantamientos repetidos, para los datos ingresados.</p>";
+    divResultado.innerHTML =
+      "<p>⚠️ No se conoce un límite seguro para levantamientos repetidos, para los datos ingresados.</p>";
     divResultado.classList.add("resultado-lmc");
     divResultado.style.display = "block";
     return;
@@ -101,18 +108,30 @@ document.getElementById("calcular").addEventListener("click", () => {
     <p><strong>Distancia:</strong> ${distanciaTexto}</p>
     <p><strong>Peso levantado:</strong> ${peso} kg</p>
     <p><strong>Límite:</strong> ${resultado.limite} kg</p>
-    <p style="color:${admisible ? 'green' : 'red'};">
-      <strong>${admisible ? '✅ La carga es admisible, para la altura y distancia de levantamiento ingresados.' : '❌ La carga NO es admisible para la altura y distancia de levantamiento ingresados.'}</strong>
+    <p style="color:${admisible ? "green" : "red"};">
+      <strong>${
+        admisible
+          ? "✅ La carga es admisible, para la altura y distancia de levantamiento ingresados."
+          : "❌ La carga NO es admisible para la altura y distancia de levantamiento ingresados."
+      }</strong>
     </p>`;
-    divResultado.classList.add("resultado-lmc");
-    divResultado.style.display = "block";
+  divResultado.classList.add("resultado-lmc");
+  divResultado.style.display = "block";
 
-// Guardar evaluación en localStorage
+  // Guardar evaluación en localStorage
   const evaluaciones = JSON.parse(localStorage.getItem("evaluaciones")) || [];
   evaluaciones.push({
-    empresa, sector, puesto, tarea, fecha,
-    tabla: tablaTexto, altura: alturaTexto, distancia: distanciaTexto,
-    peso, limite: resultado.limite, admisible
+    empresa,
+    sector,
+    puesto,
+    tarea,
+    fecha,
+    tabla: tablaTexto,
+    altura: alturaTexto,
+    distancia: distanciaTexto,
+    peso,
+    limite: resultado.limite,
+    admisible,
   });
   localStorage.setItem("evaluaciones", JSON.stringify(evaluaciones));
 });
@@ -133,4 +152,3 @@ document.getElementById("limpiar").addEventListener("click", () => {
   divResultado.classList.remove("resultado-lmc");
   divResultado.style.display = "none";
 });
-
