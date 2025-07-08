@@ -1,0 +1,20 @@
+{
+  "textoTabla": {
+    "1": "Tabla 1: Realiza tareas hasta 2 horas al día y con hasta 60 levantamientos por hora, o de mas de 2 horas al día y con hasta 12 levantamientos por hora",
+    "2": "Tabla 2: Realiza tareas de mas de 2 horas al día y de 12 a 30 levantamientos por hora, o hasta 2 horas al día y de 60 a 360 levantamientos por hora",
+    "3": "Tabla 3: Realiza tareas de mas de 2 horas al día y de 30 a 360 levantamientos por hora"
+  },
+
+  "textoAltura": {
+    "1": "Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo",
+    "2": "Desde la altura de los nudillos hasta por debajo del hombro",
+    "3": "Desde la mitad de la espinilla hasta la altura de los nudillos",
+    "4": "Desde el suelo hasta la mitad de la espinilla"
+  },
+
+  "textoDistancia": {
+    "1": "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
+    "2": "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
+    "3": "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos"
+  }
+}

@@ -1,32 +1,13 @@
-
-// referencia de las tablas de levantamiento manual de cargas (LMC) según la resolución 295/03
-const textoTabla = {
-  1: "Tabla 1: Realiza tareas hasta 2 horas al día y con hasta 60 levantamientos por hora, o de mas de 2 horas al día y con hasta 12 levantamientos por hora",
-  2: "Tabla 2: Realiza tareas de mas de 2 horas al día y de 12 a 30 levantamientos por hora, o hasta 2 horas al día y de 60 a 360 levantamientos por hora",
-  3: "Tabla 3: Realiza tareas de mas de 2 horas al día y de 30 a 360 levantamientos por hora",
-};
-
-const textoAltura = {
-  1: "Hasta 30 cm por encima del hombro desde una altura de 8 cm por debajo del mismo",
-  2: "Desde la altura de los nudillos hasta por debajo del hombro",
-  3: "Desde la mitad de la espinilla hasta la altura de los nudillos",
-  4: "Desde el suelo hasta la mitad de la espinilla",
-};
-
-const textoDistancia = {
-  1: "Levantamientos próximos: Origen < 30 cm desde el punto medio entre los tobillos",
-  2: "Levantamientos intermedios: Origen de 30 a 60 cm desde el punto medio entre los tobillos",
-  3: "Levantamientos alejados: Origen > 60 a 80 cm desde el punto medio entre los tobillos",
-};
-
-
 // contenedor de resultados
 const divResultado = document.getElementById("resultado");
 divResultado.style.display = "none";
 
-// Cargar los límites de levantamiento desde el archivo JSON
-let limites = [];
 
+let limites = [];
+let textoTabla = {}, textoAltura = {}, textoDistancia = {};
+
+
+// Cargar los límites de levantamiento desde el archivo JSON
 fetch("../data/limites.json")
   .then((response) => {
     if (!response.ok) {
@@ -43,6 +24,34 @@ fetch("../data/limites.json")
     console.error("Error al cargar los límites:", error);
     Toastify({
       text: "⚠️ Error al cargar los límites de levantamiento.",
+      duration: 5000,
+      gravity: "top",
+      position: "center",
+      backgroundColor: "#e74c3c",
+      stopOnFocus: true,
+    }).showToast();
+  });
+
+
+// Cargar referencias de tablas desde el archivo JSON
+fetch("../data/referencias.json")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("No se pudo cargar el archivo JSON");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    textoTabla = data.textoTabla;
+    textoAltura = data.textoAltura;
+    textoDistancia = data.textoDistancia;
+    console.log("Referencias cargadas:", textoTabla, textoAltura, textoDistancia);
+  })
+
+    .catch((error) => {
+    console.error("Error al cargar referencias:", error);
+    Toastify({
+      text: "⚠️ Error al cargar referencias de tablas, alturas y distancias.",
       duration: 5000,
       gravity: "top",
       position: "center",
@@ -112,7 +121,7 @@ document.getElementById("calcular").addEventListener("click", () => {
     Swal.fire({
       icon: "warning",
       title: "Campos incompletos",
-      text: "Por favor, completá todos los campos obligatorios",
+      text: "Por favor, completá todos los campos obligatorios (*)",
       confirmButtonText: "Cerrar",
     });
     return;
@@ -197,3 +206,42 @@ document.getElementById("limpiar").addEventListener("click", () => {
   divResultado.classList.remove("resultado-lmc");
   divResultado.style.display = "none";
 });
+
+// Botón para ver historial de evaluaciones
+document.getElementById("historial").addEventListener("click", () => {
+  window.location.href = "historial.html";
+});
+
+// Mostrar historial de evaluaciones
+function mostrarHistorial() {
+  const tabla = document.getElementById("tablaHistorial")?.querySelector("tbody");
+  if (!tabla) return;
+
+  tabla.innerHTML = "";
+
+  const datos = JSON.parse(localStorage.getItem("evaluaciones")) || [];
+
+  datos.forEach((item) => {
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+      <td>${item.fecha}</td>
+      <td>${item.empresa}</td>
+      <td>${item.sector}</td>
+      <td>${item.puesto}</td>
+      <td>${item.tarea}</td>
+      <td>${item.tabla}</td>
+      <td>${item.altura}</td>
+      <td>${item.distancia}</td>
+      <td>${item.peso} kg</td>
+      <td>${item.limite} kg</td>
+      <td style="color: ${item.admisible ? "green" : "red"};">
+        ${item.admisible ? "✅ Sí" : "❌ No"}
+      </td>
+    `;
+
+    tabla.appendChild(fila);
+  });
+}
+
+window.addEventListener("DOMContentLoaded", mostrarHistorial);
