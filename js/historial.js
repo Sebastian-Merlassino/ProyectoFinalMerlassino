@@ -32,3 +32,7 @@ function mostrarHistorial() {
 }
 
 window.addEventListener("DOMContentLoaded", mostrarHistorial);
+
+document.getElementById("volver").addEventListener("click", () => {
+  window.location.href = "lmc.html";
+});

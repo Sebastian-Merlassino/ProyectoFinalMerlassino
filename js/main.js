@@ -2,10 +2,10 @@
 const divResultado = document.getElementById("resultado");
 divResultado.style.display = "none";
 
-
 let limites = [];
-let textoTabla = {}, textoAltura = {}, textoDistancia = {};
-
+let textoTabla = {},
+  textoAltura = {},
+  textoDistancia = {};
 
 // Cargar los límites de levantamiento desde el archivo JSON
 fetch("../data/limites.json")
@@ -32,7 +32,6 @@ fetch("../data/limites.json")
     }).showToast();
   });
 
-
 // Cargar referencias de tablas desde el archivo JSON
 fetch("../data/referencias.json")
   .then((response) => {
@@ -45,10 +44,15 @@ fetch("../data/referencias.json")
     textoTabla = data.textoTabla;
     textoAltura = data.textoAltura;
     textoDistancia = data.textoDistancia;
-    console.log("Referencias cargadas:", textoTabla, textoAltura, textoDistancia);
+    console.log(
+      "Referencias cargadas:",
+      textoTabla,
+      textoAltura,
+      textoDistancia
+    );
   })
 
-    .catch((error) => {
+  .catch((error) => {
     console.error("Error al cargar referencias:", error);
     Toastify({
       text: "⚠️ Error al cargar referencias de tablas, alturas y distancias.",
@@ -60,7 +64,6 @@ fetch("../data/referencias.json")
     }).showToast();
   });
 
-
 // Evento: clic en botón para ver tablas
 document.getElementById("btn-tabla1").addEventListener("click", () => {
   Swal.fire({
@@ -69,6 +72,10 @@ document.getElementById("btn-tabla1").addEventListener("click", () => {
     imageAlt: "Tabla 1",
     confirmButtonText: "Cerrar",
     width: 600,
+    customClass: {
+      confirmButton: "btn btn-primary",
+    },
+    buttonsStyling: false,
   });
 });
 
@@ -79,6 +86,10 @@ document.getElementById("btn-tabla2").addEventListener("click", () => {
     imageAlt: "Tabla 2",
     confirmButtonText: "Cerrar",
     width: 600,
+    customClass: {
+      confirmButton: "btn btn-primary",
+    },
+    buttonsStyling: false,
   });
 });
 
@@ -89,66 +100,88 @@ document.getElementById("btn-tabla3").addEventListener("click", () => {
     imageAlt: "Tabla 3",
     confirmButtonText: "Cerrar",
     width: 600,
+    customClass: {
+      confirmButton: "btn btn-primary",
+    },
+    buttonsStyling: false,
   });
 });
 
-// Evento: clic en botón para calcular
-document.getElementById("calcular").addEventListener("click", () => {
-  let fechaInput = document.getElementById("fecha").value;
-  let fecha = "";
-
-  if (!fechaInput) {
-    const ahora = new Date();
-    fecha = ahora.toLocaleDateString("es-AR");
-  } else {
-    const partes = fechaInput.split("-");
-    const año = partes[0];
-    const mes = partes[1];
-    const dia = partes[2];
-    fecha = `${dia}/${mes}/${año}`;
+// Evento: clic en botón Evaluar
+document.getElementById("evaluar").addEventListener("click", () => {
+  Toastify({
+    text: "⏳ Cargando...",
+    duration: 1500,
+    gravity: "top",
+    position: "center",
+    style: {
+      background: "#3498db",
+      color: "#ffffff",
+      fontWeight: "bold",
+      fontSize: "16px",
   }
-  const empresa = document.getElementById("empresa").value;
-  const sector = document.getElementById("sector").value;
-  const puesto = document.getElementById("puesto").value;
-  const tarea = document.getElementById("tarea").value;
+  }).showToast();
 
-  const tabla = parseInt(document.getElementById("tabla").value);
-  const altura = parseInt(document.getElementById("altura").value);
-  const distancia = parseInt(document.getElementById("distancia").value);
-  const peso = parseFloat(document.getElementById("peso").value);
+  setTimeout(() => {
+    let fechaInput = document.getElementById("fecha").value;
+    let fecha = "";
 
-  if (!tabla || !altura || !distancia || isNaN(peso)) {
-    Swal.fire({
-      icon: "warning",
-      title: "Campos incompletos",
-      text: "Por favor, completá todos los campos obligatorios (*)",
-      confirmButtonText: "Cerrar",
-    });
-    return;
-  }
+    if (!fechaInput) {
+      const ahora = new Date();
+      fecha = ahora.toLocaleDateString("es-AR");
+    } else {
+      const partes = fechaInput.split("-");
+      const año = partes[0];
+      const mes = partes[1];
+      const dia = partes[2];
+      fecha = `${dia}/${mes}/${año}`;
+    }
+    const empresa = document.getElementById("empresa").value.trim();
+    const sector = document.getElementById("sector").value.trim();
+    const puesto = document.getElementById("puesto").value.trim();
+    const tarea = document.getElementById("tarea").value.trim();
 
-  const alturaTexto = textoAltura[altura];
-  const distanciaTexto = textoDistancia[distancia];
-  const tablaTexto = textoTabla[tabla];
+    const tabla = parseInt(document.getElementById("tabla").value);
+    const altura = parseInt(document.getElementById("altura").value);
+    const distancia = parseInt(document.getElementById("distancia").value);
+    const peso = parseFloat(document.getElementById("peso").value);
 
-  const resultado = limites.find(
-    (item) =>
-      item.tabla === tabla &&
-      item.altura === alturaTexto &&
-      item.distancia === distanciaTexto
-  );
+    if (!tabla || !altura || !distancia || isNaN(peso) || peso < 0) {
+      Swal.fire({
+        icon: "warning",
+        title: "Campos incompletos o inválidos",
+        text: "Por favor, completá correctamente todos los campos obligatorios (*)",
+        confirmButtonText: "Cerrar",
+        customClass: {
+          confirmButton: "btn btn-secondary",
+        },
+        buttonsStyling: false,
+      });
+      return;
+    }
 
-  if (!resultado) {
-    divResultado.innerHTML =
-      "<p>⚠️ No se conoce un límite seguro para levantamientos repetidos, para los datos ingresados.</p>";
-    divResultado.classList.add("resultado-lmc");
-    divResultado.style.display = "block";
-    return;
-  }
+    const alturaTexto = textoAltura[altura];
+    const distanciaTexto = textoDistancia[distancia];
+    const tablaTexto = textoTabla[tabla];
 
-  const admisible = peso <= resultado.limite;
+    const resultado = limites.find(
+      (item) =>
+        item.tabla === tabla &&
+        item.altura === alturaTexto &&
+        item.distancia === distanciaTexto
+    );
 
-  divResultado.innerHTML = `
+    if (!resultado) {
+      divResultado.innerHTML =
+        "<p>⚠️ No se conoce un límite seguro para levantamientos repetidos, para los datos ingresados.</p>";
+      divResultado.classList.add("resultado-lmc");
+      divResultado.style.display = "block";
+      return;
+    }
+
+    const admisible = peso <= resultado.limite;
+
+    divResultado.innerHTML = `
     <h2>Resultado de la Evaluación</h2>
     <p><strong>Empresa:</strong> ${empresa}</p>
     <p><strong>Área / Sector:</strong> ${sector}</p>
@@ -169,25 +202,26 @@ document.getElementById("calcular").addEventListener("click", () => {
         }
       </p>
     </div>`;
-  divResultado.classList.add("resultado-lmc");
-  divResultado.style.display = "block";
+    divResultado.classList.add("resultado-lmc");
+    divResultado.style.display = "block";
 
-  // Guardar evaluación en localStorage
-  const evaluaciones = JSON.parse(localStorage.getItem("evaluaciones")) || [];
-  evaluaciones.push({
-    empresa,
-    sector,
-    puesto,
-    tarea,
-    fecha,
-    tabla: tablaTexto,
-    altura: alturaTexto,
-    distancia: distanciaTexto,
-    peso,
-    limite: resultado.limite,
-    admisible,
-  });
-  localStorage.setItem("evaluaciones", JSON.stringify(evaluaciones));
+    // Guardar evaluación en localStorage
+    const evaluaciones = JSON.parse(localStorage.getItem("evaluaciones")) || [];
+    evaluaciones.push({
+      empresa,
+      sector,
+      puesto,
+      tarea,
+      fecha,
+      tabla: tablaTexto,
+      altura: alturaTexto,
+      distancia: distanciaTexto,
+      peso,
+      limite: resultado.limite,
+      admisible,
+    });
+    localStorage.setItem("evaluaciones", JSON.stringify(evaluaciones));
+  }, 1500);
 });
 
 // Botón limpiar campos
@@ -209,12 +243,56 @@ document.getElementById("limpiar").addEventListener("click", () => {
 
 // Botón para ver historial de evaluaciones
 document.getElementById("historial").addEventListener("click", () => {
-  window.location.href = "historial.html";
+  const empresa = document.getElementById("empresa").value.trim();
+  const sector = document.getElementById("sector").value.trim();
+  const puesto = document.getElementById("puesto").value.trim();
+  const tarea = document.getElementById("tarea").value.trim();
+  const fecha = document.getElementById("fecha").value.trim();
+  const tabla = document.getElementById("tabla").value;
+  const altura = document.getElementById("altura").value;
+  const distancia = document.getElementById("distancia").value;
+  const peso = document.getElementById("peso").value.trim();
+
+  if (
+    empresa ||
+    sector ||
+    puesto ||
+    tarea ||
+    fecha ||
+    tabla ||
+    altura ||
+    distancia ||
+    peso
+  ) {
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Perderás los datos cargados en el formulario si continúas.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Continuar",
+      cancelButtonText: "Cancelar",
+      // confirmButtonColor: "#3085d6",
+      // cancelButtonColor: "#d33",
+      customClass: {
+        confirmButton: "btn btn-primary",
+        cancelButton: "btn btn-secondary",
+      },
+      buttonsStyling: false,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "historial.html";
+      }
+    });
+  } else {
+    window.location.href = "historial.html";
+  }
 });
 
 // Mostrar historial de evaluaciones
 function mostrarHistorial() {
-  const tabla = document.getElementById("tablaHistorial")?.querySelector("tbody");
+  const tabla = document
+    .getElementById("tablaHistorial")
+    ?.querySelector("tbody");
   if (!tabla) return;
 
   tabla.innerHTML = "";

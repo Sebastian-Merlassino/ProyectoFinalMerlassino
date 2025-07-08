@@ -274,22 +274,30 @@ footer a {
   margin-top: 30px;
 }
 
-.lmc {
+.lmc,
+.historial {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
   padding: 20px 80px;
 }
 .lmc h1,
 .lmc h2,
-.lmc h4 {
+.lmc h4,
+.historial h1,
+.historial h2,
+.historial h4 {
   text-align: center;
 }
-.lmc p {
+.lmc p,
+.historial p {
   text-align: justify;
 }
-.lmc ul {
+.lmc ul,
+.historial ul {
   text-align: justify;
 }
 
@@ -300,25 +308,70 @@ footer a {
   border-radius: 10px;
   margin-top: 20px;
   background-color: #d9d9d9;
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
 }
 
 .container {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+}
+
+.volver-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.table-container {
+  width: 100%;
+  overflow-y: auto;
+  max-height: 500px;
+}
+.table-container thead th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 2;
+}
+
+.table th {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.table td {
+  font-size: 14px;
 }
 
 .btn.btn-primary {
-  padding: 10px 20px;
   border-radius: 10px;
   background-color: #448ff2;
   color: #ffffff;
   font-weight: 700;
-  font-size: 25px;
-  margin: 20px;
+  font-size: 20px;
   transition: 0.2s ease-in-out;
 }
 .btn.btn-primary:hover {
   background-color: #ffffff;
   color: #448ff2;
+}
+
+.btn-secondary {
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 20px;
+  transition: 0.2s ease-in-out;
+}
+.btn-secondary:hover {
+  background-color: #ffffff;
+  color: grey;
+}
+
+.swal2-actions {
+  gap: 10px;
 }
 
 /* Estilos de formulario */
